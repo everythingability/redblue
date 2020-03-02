@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.7
 import os, sys
 sys.path.insert(0, '/home/tomsmith/webapps/redblue/htdocs/redblue/env/lib/python3.7/site-packages') #server path
 
