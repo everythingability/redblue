@@ -1,4 +1,6 @@
-import os
+import os, sys
+sys.path.insert(0, '/home/tomsmith/webapps/redblue/htdocs/redblue/env/lib/python3.7/site-packages') #server path
+
 from flask import Flask
 from flask import request,render_template, jsonify, redirect
 from flask_sqlalchemy import SQLAlchemy
@@ -7,12 +9,13 @@ from flask_sqlalchemy import SQLAlchemy
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "redblue.db"))
 
-
 app = Flask(__name__, 
     static_folder='static', 
     static_url_path='/static',
     template_folder='views')
+
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
+
 db = SQLAlchemy(app)
 
 from flask import Flask
@@ -87,9 +90,7 @@ def put():
 
 if __name__ == '__main__':
     app.run()
-    
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 
 
